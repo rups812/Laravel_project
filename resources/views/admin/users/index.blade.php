@@ -30,7 +30,7 @@
             <tr>
                 <td>{{$user->id}}</td>
                 <td><img height="50" width="60" src="{{$user->photo ? $user->photo->file : 'https://via.placeholder.com/150'}}" alt="" ></td>
-                <td><a href="{{url('admin/users/edit', $user->id)}}">{{$user->name}}</a></td>
+                <td><a href="{{route('admin.users.edit', $user->id)}}">{{$user->name}}</a></td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->role->name}}</td>
                 <td>{{$user->is_active == 1 ? 'Active' : 'Not Active'}}</td>

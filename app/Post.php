@@ -1,6 +1,9 @@
 <?php
 
 namespace App;
+use App\User;
+use App\Photo;
+use App\Category;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,10 +11,7 @@ class Post extends Model
 {
     //
     protected $fillable = [
-        'category_id',
-        'photo_id',
-        'title',
-        'body'
+        'user_id', 'category_id', 'photo_id', 'title', 'body'
     ];
 
     public function user(){

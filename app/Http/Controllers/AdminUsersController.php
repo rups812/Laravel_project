@@ -24,9 +24,13 @@ class AdminUsersController extends Controller
         //
         $users = User::all();
         // foreach ($users as $value) {
-        //     print_r($value->role);
+        //     if (isset($value->photo->file) && $value->photo->file !='') {
+        //         echo "<pre>";print_r($value->photo->id);echo "</pre>";
+        //     }
+            
+            
         // }
-       
+       //print_r($users->photo->file); exit;
         return view('admin.users.index', compact('users'));
     }
 
@@ -100,6 +104,7 @@ class AdminUsersController extends Controller
         $user = User::findOrFail($id);
         $roles = Role::pluck('name','id')->all();
         return view('admin.users.edit', compact('user','roles'));
+        
     }
 
     /**
@@ -147,6 +152,7 @@ class AdminUsersController extends Controller
         //return "DESTROY";
 
         $user = User::findOrFail($id);
+        
         unlink(public_path() . $user->photo->file);
         $user->delete();
         session()->flash('deleted_user', 'User has been deleted');
